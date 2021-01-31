@@ -15,10 +15,10 @@
 
 
     <div id="login-area">
-        <h1 class="text-center">Welcome to Sayama Esha Bank</h1>
+        <h1 id="lp" class="text-center">Welcome to Sayama Esha Bank</h1>
 
         <div class="submit-area">
-            <h4>login</h4>
+            <h4>Login</h4>
             <input type="text" class="form-control" placeholder="email">
             <br>
             <input type="password" class="form-control" placeholder="password" name="" id="">
@@ -39,7 +39,7 @@
             <div class="col-md-4  ">
                 <div class="withdraw status">
                     <h5>Withdraw</h5>
-                    <h2>$00</h2>
+                    <h2>$ <span id="currentWithdraw">00</span></h2>
                 </div>
             </div>
             <div class="col-md-4 ">
@@ -68,7 +68,7 @@
                     <input id="withdrawamount" type="text" class="form-control"
                         placeholder="$ amount you want to withdraw">
                     <br>
-                    <button id="addwithdraw" class="btn btn-success">Deposit</button>
+                    <button id="addwithdraw" class="btn btn-success">Withdraw</button>
                 </div>
             </div>
         </div>
@@ -99,7 +99,7 @@
             // const totalDeposit = depositNumber + currentDepositNumber;
 
             // document.getElementById("currentDeposit").innerText = totalDeposit;
-            
+
             updateSpanText("currentDeposit", depositNumber)
             updateSpanText("currentBalance", depositNumber);
 
@@ -116,6 +116,10 @@
         withdrawBtn.addEventListener("click", function () {
             const withdrawNumber = getInputNumber("withdrawamount");
             console.log(withdrawNumber);
+            updateSpanText("currentWithdraw", withdrawNumber);
+
+            updateSpanText("currentBalance", -1 * withdrawNumber);
+            document.getElementById("withdrawamount").value = "";
 
         })
 
