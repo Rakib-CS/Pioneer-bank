@@ -1,13 +1,10 @@
 body{
     padding: 100px;
-    background-image: url("es.jpg");
+   
 }
 
 
-#login-area{
-    background-color: white;
-    opacity: 0.8;
-}
+
 .submit-area{
     margin-top: 50px;
     padding: 40px;
